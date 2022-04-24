@@ -1,0 +1,104 @@
+ul {
+  --task-bg-color: rgb(166, 250, 184);
+
+  --task-shadow-color: rgba(173, 233, 173, 0.815);
+
+  --task-id-color: rgb(74, 134, 65);
+  --task-title-color: rgb(60, 156, 47);
+  --task-description-color: rgb(36, 141, 22);
+  --task-date-color: rgb(31, 143, 16);
+
+  --task-unchecked-border-color: rgb(173, 201, 179);
+  --task-unchecked-bg-color: rgb(206, 228, 211);
+
+  --task-checked-border-color: rgb(121, 219, 108);
+  --task-checked-bg-color: rgb(121, 219, 108);
+}
+
+ul {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+
+  width: fit-content;
+}
+
+li {
+  display: grid;
+
+  grid-template-columns: 100px 200px 500px 200px 25px;
+
+  align-items: center;
+
+  border-radius: 10px;
+
+  padding: 10px 15px;
+  margin-bottom: 15px;
+
+  background-color: var(--task-bg-color);
+
+  box-shadow: 0 5px 15px var(--task-shadow-color);
+}
+
+li > input[type="checkbox"] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+li > input[type="checkbox"] + span::before {
+  content: "";
+  display: block;
+  width: 1.3rem;
+  height: 1.3rem;
+  border: 2px solid var(--task-unchecked-border-color);
+  border-radius: 5px;
+
+  background-color: var(--task-unchecked-bg-color);
+
+  cursor: pointer;
+}
+
+li > input[type="checkbox"]:checked + span::before {
+  content: "";
+  display: block;
+
+  width: 1.3rem;
+  height: 1.3rem;
+
+  border: 2px solid var(--task-checked-border-color);
+  border-radius: 5px;
+
+  background-color: var(--task-checked-bg-color);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+li > span:nth-child(1) {
+  color: var(--task-id-color);
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+li > span:nth-child(2) {
+  color: var(--task-title-color);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+li > span:nth-child(3) {
+  color: var(--task-description-color);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+li > span:nth-child(4) {
+  color: var(--task-date-color);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+h3 {
+  color: rgba(63, 156, 63, 0.295);
+  font-size: 5rem;
+}

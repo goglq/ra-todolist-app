@@ -1,0 +1,11 @@
+<ul *ngIf="tasks.length > 0">
+  <li *ngFor="let task of tasks">
+    <span>{{ task.id }}</span>
+    <span>{{ task.title }}</span>
+    <span>{{ task.description }}</span>
+    <span>{{ task.endDate | date: "dd.MM.yyyy" }}</span>
+    <input type="checkbox" [checked]="task.isComplete" />
+    <span (click)="onClick(task)"></span>
+  </li>
+</ul>
+<h3 *ngIf="tasks.length === 0">No tasks</h3>
